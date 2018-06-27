@@ -2,21 +2,24 @@
 	> File Name: 2.c
 	> Author: 
 	> Mail: 
-	> Created Time: 2018年04月02日 星期一 18时39分06秒
+	> Created Time: 2018年04月23日 星期一 11时36分45秒
  ************************************************************************/
 
 #include<stdio.h>
-int main(){
-    int a;
-    int b[32];
-    int i;
-
-    scanf("%d", &a);
-    for(i = 0; i < 32; i++) {
-        b[i] = a % 2;
-        a = a / 2;
+int main() {
+    int a[3] = {0};
+    a[0] = 1;
+    a[1] = 1;
+    int n;
+    int num = 0;
+    for(int i = 2;n<4000000 ; i++){
+        a[i % 3] = a[(i - 2) % 3] + a[(i - 1) % 3];
+        n = a[i % 3];
+        if(n % 2 == 0) {
+            num += n;
+        }
+       // if (n > 4000000) break;
     }
-    for (i = 31; i >= 0; i--){
-        printf("\033[0;34m%d", b[i]);
-    }
+    printf("%d", num);
+    return 0;
 }
